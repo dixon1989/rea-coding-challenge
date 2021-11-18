@@ -1,9 +1,8 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('Check if page renders contains Rea-Group', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+  const linkElement = screen.getByAltText(/Rea Group Logo/i);
   expect(linkElement).toBeInTheDocument();
 });

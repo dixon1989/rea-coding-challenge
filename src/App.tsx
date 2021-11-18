@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  StyledMain,
+  StyledHeader,
+  StyledHeaderText,
+  StyledImg,
+} from "./StyledApp";
+// import Home from "./screen/Home";
+import Logo from "./assets/rea-group.svg";
 
-function App() {
+// Delaring Function Component Type for App.js and Adding Styled Components onto respective HTML Tags
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledMain>
+      <StyledHeader>
+        <StyledImg src={Logo} alt={"Rea Group Logo"} />
+        <StyledHeaderText>Result</StyledHeaderText>
+      </StyledHeader>
+      {/* <Home /> */}
+    </StyledMain>
   );
-}
+};
 
 export default App;
