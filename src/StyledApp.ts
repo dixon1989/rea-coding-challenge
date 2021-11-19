@@ -15,8 +15,3 @@ export const StyledHeader = styled.div`
 export const StyledImg = styled.img`
   width: 250px;
 `;
-
-export const StyledHeaderText = styled.h3`
-  margin: 0;
-  padding: 0;
-`;
