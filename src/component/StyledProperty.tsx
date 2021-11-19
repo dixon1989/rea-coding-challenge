@@ -10,11 +10,6 @@ interface ItemHeaderProps {
 
 interface ButtonBoxProps {
   type: string;
-  disabled: boolean;
-}
-
-interface ListWrapperProps {
-  disabled: boolean;
 }
 
 interface BoxProps {
@@ -96,7 +91,7 @@ export const OverlayCenter = styled.div`
 export const ListWrapper = styled.div`
   margin: 20px 0px 20px 0;
   position: relative;
-  opacity: ${(props: ListWrapperProps) => (props.disabled ? 0.7 : 1)};
+  opacity: 1;
   &:hover {
     ${OverlayCenter} {
       opacity: 1;
@@ -116,23 +111,11 @@ export const ButtonBox = styled.div`
   border-radius: 25px;
   border: 2px solid
     ${(props: ButtonBoxProps) =>
-      props.disabled === true
-        ? "#808080"
-        : props.type === "results"
-        ? "#00FF00"
-        : "#FF0000"};
+      props.type === "results" ? "#00FF00" : "#FF0000"};
   border-color: ${(props: ButtonBoxProps) =>
-    props.disabled === true
-      ? "#808080"
-      : props.type === "results"
-      ? "#00FF00"
-      : "#FF0000"};
+    props.type === "results" ? "#00FF00" : "#FF0000"};
   color: ${(props: ButtonBoxProps) =>
-    props.disabled === true
-      ? "#808080"
-      : props.type === "results"
-      ? "#00FF00"
-      : "#FF0000"};
+    props.type === "results" ? "#00FF00" : "#FF0000"};
   cursor: pointer;
 `;
 

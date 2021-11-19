@@ -22,7 +22,7 @@ export function BoxContainer({ children }: any) {
 
 const Wrapper = ({ item, index, children }: any) => (
   <React.Fragment>
-    <ListWrapper disabled={item.disabled} key={index}>
+    <ListWrapper key={index}>
       <ItemHeader color={item.agency.brandingColors.primary}>
         <img src={item.agency.logo} alt={"img" + index} />
       </ItemHeader>
@@ -47,13 +47,8 @@ export function PropertyComponent(props: any) {
           props.data.results.map((item: any, index: number) => (
             <Wrapper item={item} index={index} key={index}>
               <ButtonBox
-                disabled={item.disabled}
                 type={props.type}
-                onClick={
-                  item.disabled
-                    ? () => {}
-                    : () => props.actions(props.data, item, index)
-                }
+                onClick={() => props.actions(props.data, item, index)}
               >
                 Add Property
               </ButtonBox>
@@ -68,7 +63,6 @@ export function PropertyComponent(props: any) {
         props.data.saved.map((item: any, index: any) => (
           <Wrapper item={item} index={index} key={index}>
             <ButtonBox
-              disabled={false}
               type={props.type}
               onClick={() => props.actions(props.data, item, index)}
             >

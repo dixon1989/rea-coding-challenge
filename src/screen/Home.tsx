@@ -4,13 +4,13 @@ import {
   addToSavedProperties,
   removeFromSavedProperties,
 } from "../utils/propertyAction";
-import { PropertyComponent } from "../component/PropertyComponent";
-
-// import Result from "../components/Result";
-// import { getFestivalsData } from "../utils";
+import { Property, PropertyData } from "../types";
+import { PropertyComponent, BoxContainer } from "../component/PropertyComponent";
 
 const Home: React.FC = () => {
-  const [propertyData, setPropertyData] = React.useState<any>();
+  const [propertyData, setPropertyData] = React.useState<
+    Property | undefined
+  >();
   React.useEffect(() => {
     // Should Start grabbing data from webServices API
     const load = async () => {
@@ -24,22 +24,32 @@ const Home: React.FC = () => {
   return (
     <>
       {propertyList ? (
-        <>
+        <BoxContainer>
           <PropertyComponent
             type={"results"}
             data={propertyList}
-            actions={(data: any, item: any, index: number) =>
+            actions={(
+              propertyList: Property,
+              item: PropertyData,
+              index: number
+            ) =>
               setPropertyData(addToSavedProperties(propertyList, item, index))
             }
           />
           <PropertyComponent
             type={"saved"}
             data={propertyList}
-            actions={(data: any, item: any, index: number) =>
-              setPropertyData(removeFromSavedProperties(propertyList, item, index))
+            actions={(
+              propertyList: Property,
+              item: PropertyData,
+              index: number
+            ) =>
+              setPropertyData(
+                removeFromSavedProperties(propertyList, item, index)
+              )
             }
           />
-        </>
+        </BoxContainer>
       ) : null}
     </>
   );
